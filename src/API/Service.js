@@ -38,4 +38,12 @@ export default class Service {
             },
         })
     }
+
+    static async getForecastOrders() {
+        return await axios.get(`http://localhost:8080/orders/forecast`)
+    }
+
+    static async getAnalysisWarehouses() {
+        return await axios.get(`http://localhost:8080/warehouse/analysis`)
+    }
 }

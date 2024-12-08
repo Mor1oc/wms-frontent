@@ -425,3 +425,18 @@ tbody input[type='number'] {
     font-size: 18px;
     text-decoration: underline;
 }
+
+.low-stock {
+    background-color: #f8d7da; /* Красный */
+    color: #721c24;
+}
+
+.medium-stock {
+    background-color: #fff3cd; /* Жёлтый */
+    color: #856404;
+}
+
+.high-stock {
+    background-color: #d4edda; /* Зелёный */
+    color: #155724;
+}

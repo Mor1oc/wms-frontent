@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const NavbarStoreKeeper = () => {
+const NavbarAnalysis = () => {
     return (
         <header>
             <div>
                 <div className="header-item">
-                    <div className="text white">Менеджер</div>
+                    <div className="text white">Аналитик</div>
                 </div>
                 <div className="header-item navi-btn">
                     <div>
@@ -16,7 +16,12 @@ const NavbarStoreKeeper = () => {
                     </div>
                     <div>
                         <div className="menu-item white">
-                            <Link to="/planning">Планирование заказов</Link>
+                            <Link to="/analysstock">Анализ запасов</Link>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="menu-item white">
+                            <Link to="/analysdemand">Прогнозировтние спроса</Link>
                         </div>
                     </div>
                 </div>
@@ -27,7 +32,7 @@ const NavbarStoreKeeper = () => {
                 </div>
             </div>
         </header>
-    )
+    );
 };
 
-export default NavbarStoreKeeper;
+export default NavbarAnalysis;
