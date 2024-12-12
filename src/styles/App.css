@@ -235,6 +235,7 @@ input[type='search']::after {
 .submit-btn {
     display: flex;
     justify-content: center;
+    font-family: JetBrains Mono, "SemiBold", monospace;
     font-size: 15px;
     margin-top: 12px;
 }
@@ -312,6 +313,14 @@ input[type='text'] {
     font-weight: 600;
 }
 
+input[type='password'] {
+    background-color: #FBFBF3;
+    padding: 3px 5px;
+    font-size: 14px;
+    font-family: JetBrains Mono, "SemiBold", monospace;
+    font-weight: 600;
+}
+
 input[type='number'] {
     background-color: #FBFBF3;
     padding: 3px 5px;
@@ -375,6 +384,7 @@ tbody input[type='number'] {
 }
 
 .auth {
+    margin-top: 270px;
     border: 2px solid #161616;
     display: flex;
     align-items: center;

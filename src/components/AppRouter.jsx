@@ -7,20 +7,25 @@ import Supplies from "../pages/Supplies";
 import Planning from "../pages/Planning";
 import AnalysisStock from "../pages/AnalysisStock";
 import AnalysisDemand from "../pages/AnalysisDemand";
-import Auth from "../pages/Auth";
+import LoginPage from "../pages/LoginPage";
+import Stock from "../pages/Stock";
+import ProtectedRoute from "./ProtectedRoute";
+import RegistrPage from "../pages/RegistrPage";
 
-const AppRouter = () => {
+const AppRouter = ({setIsAuthenticated}) => {
     return (
         <SwitchTransition>
             <Routes>
-                <Route path="/auth" element={<Auth/>}/>
-                <Route path="/stock-keeper" element={<StockStorekeeper/>}/>
-                <Route path="/supplies" element={<Supplies/>}/>
-                <Route path="/error" element={<Error/>}/>
-                <Route path="/planning" element={<Planning/>}/>
-                <Route path="/analysstock" element={<AnalysisStock/>}/>
-                <Route path="/analysdemand" element={<AnalysisDemand/>}/>
-                <Route path="*" element={<Error/>}/>
+                <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated}/>}/>
+                <Route path="/registr" element={<RegistrPage setIsAuthenticated={setIsAuthenticated}/>}/>
+                <Route path="/stock-keeper" element={<ProtectedRoute><StockStorekeeper/></ProtectedRoute>}/>
+                <Route path="/stock" element={<ProtectedRoute><Stock/></ProtectedRoute>}/>
+                <Route path="/supplies" element={<ProtectedRoute><Supplies/></ProtectedRoute>}/>
+                <Route path="/error" element={<ProtectedRoute><Error/></ProtectedRoute>}/>
+                <Route path="/planning" element={<ProtectedRoute><Planning/></ProtectedRoute>}/>
+                <Route path="/analysstock" element={<ProtectedRoute><AnalysisStock/></ProtectedRoute>}/>
+                <Route path="/analysdemand" element={<ProtectedRoute><AnalysisDemand/></ProtectedRoute>}/>
+                <Route path="*" element={<ProtectedRoute><Error/></ProtectedRoute>}/>
             </Routes>
         </SwitchTransition>
     );

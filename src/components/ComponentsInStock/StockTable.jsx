@@ -1,12 +1,6 @@
 import React from 'react';
-import TbodyWarehouse from "../ComponentsInStock/TbodyWarehouse";
 
-const AnalysisTable = ({warehouses}) => {
-    const getRowClass = (coverage) => {
-        if (coverage < 10) return "low-stock"; // Красный
-        if (coverage >= 10 && coverage <= 20) return "medium-stock"; // Жёлтый
-        return "high-stock"; // Зелёный
-    };
+const StockTable = ({warehouses}) => {
     return (
         <table>
             <thead>
@@ -19,12 +13,11 @@ const AnalysisTable = ({warehouses}) => {
                 <th>Модель</th>
                 <th>Стоимость</th>
                 <th>Количество</th>
-                <th>На сколько дней хватит</th>
             </tr>
             </thead>
             <tbody>
             {warehouses.map((warehouse, index) =>
-                <tr key={index} className={getRowClass(warehouse.coverage)}>
+                <tr key={index}>
                     <th>{index + 1}</th>
                     <th>{warehouse.rack}.{warehouse.section}.{warehouse.shelf}.{warehouse.cell}</th>
                     <th>{warehouse.component.name}</th>
@@ -33,7 +26,6 @@ const AnalysisTable = ({warehouses}) => {
                     <th>{warehouse.component.model}</th>
                     <th>{warehouse.component.price}</th>
                     <th>{warehouse.quantity}</th>
-                    <th>{warehouse.coverage}</th>
                 </tr>
             )}
             </tbody>
@@ -41,4 +33,4 @@ const AnalysisTable = ({warehouses}) => {
     );
 };
 
-export default AnalysisTable;
+export default StockTable;

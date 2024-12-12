@@ -40,26 +40,26 @@ const TbodyWarehouse = ({stock}) => {
     return (
         <tbody>
         {stock.map((warehouse, index) =>
-                <tr key={index}>
-                    <th>{index}</th>
-                    <th>{warehouse.rack}.{warehouse.section}.{warehouse.shelf}.{warehouse.cell}</th>
-                    <th>{warehouse.component.name}</th>
-                    <th>{warehouse.component.category}</th>
-                    <th>{warehouse.component.manufacture}</th>
-                    <th>{warehouse.component.model}</th>
-                    <th>{warehouse.component.price}</th>
-                    <th>
-                        <input
-                            type="number"
-                            value={quantities[warehouse.id]}
-                            onChange={(e) =>
-                                handleQuantityChange(warehouse.id, Number(e.target.value))
-                            }
-                            onBlur={() => handleQuantityBlur(warehouse.id)} // Отправляем запрос при потере фокуса
-                            min="0"
-                        />
-                    </th>
-                </tr>
+            <tr key={index}>
+                <th>{index + 1}</th>
+                <th>{warehouse.rack}.{warehouse.section}.{warehouse.shelf}.{warehouse.cell}</th>
+                <th>{warehouse.component.name}</th>
+                <th>{warehouse.component.category}</th>
+                <th>{warehouse.component.manufacture}</th>
+                <th>{warehouse.component.model}</th>
+                <th>{warehouse.component.price}</th>
+                <th>
+                    <input
+                        type="number"
+                        value={quantities[warehouse.id]}
+                        onChange={(e) =>
+                            handleQuantityChange(warehouse.id, Number(e.target.value))
+                        }
+                        onBlur={() => handleQuantityBlur(warehouse.id)} // Отправляем запрос при потере фокуса
+                        min="0"
+                    />
+                </th>
+            </tr>
         )}
         </tbody>
     );
