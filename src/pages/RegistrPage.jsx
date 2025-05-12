@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-const RegistrPage = ({setIsAuthenticated}) => {
+const RegistrPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("Manager");
@@ -11,7 +11,6 @@ const RegistrPage = ({setIsAuthenticated}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Формирование данных для отправки
         const requestData = {
             username: username,
             password: password,
@@ -27,7 +26,6 @@ const RegistrPage = ({setIsAuthenticated}) => {
                     "Content-Type": "application/json",
                 },
             });
-            setIsAuthenticated(true);
             navigate('/login');
             console.log("Ответ сервера:", response.data);
         } catch (error) {
@@ -65,9 +63,9 @@ const RegistrPage = ({setIsAuthenticated}) => {
                         value={role}
                         onChange={(e) => setRole(e.target.value)}
                     >
-                        <option value="Manager">Менеджер</option>
-                        <option value="StoreKeeper">Кладовщик</option>
-                        <option value="Analyst">Аналитик</option>
+                        <option value="manager">Менеджер</option>
+                        <option value="storeKeeper">Кладовщик</option>
+                        <option value="analyst">Аналитик</option>
                     </select>
                 </div>
 

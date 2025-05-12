@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 
-const NavbarAnalysis = ({setIsAuthenticated}) => {
+const NavbarAnalysis = ({onLogout}) => {
     const navigate = useNavigate();
     return (
         <header>
@@ -25,12 +25,17 @@ const NavbarAnalysis = ({setIsAuthenticated}) => {
                             <Link to="/analysdemand">Прогнозировтние спроса</Link>
                         </div>
                     </div>
+                    <div>
+                        <div className="menu-item white">
+                            <Link to="/analysabcxyz">ABC и XYZ анализ</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="header-item exit-btn">
                 <div>
                     <div className="btn" onClick={() => {
-                        setIsAuthenticated(false)
+                        onLogout()
                         navigate('/login')
                     }}>Выйти из аккаунта</div>
                 </div>

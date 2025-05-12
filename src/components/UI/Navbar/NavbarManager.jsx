@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 
-const NavbarStoreKeeper = ({setIsAuthenticated}) => {
+const NavbarStoreKeeper = ({onLogout}) => {
     const navigate = useNavigate();
     return (
         <header>
@@ -25,7 +25,7 @@ const NavbarStoreKeeper = ({setIsAuthenticated}) => {
             <div className="header-item exit-btn">
                 <div>
                     <div className="btn" onClick={() => {
-                        setIsAuthenticated(false)
+                        onLogout()
                         navigate('/login')
                     }
                     }>Выйти из аккаунта</div>

@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 
-const LoginPage = ({setIsAuthenticated}) => {
+const LoginPage = ({onLoginSuccess, setIsAuthenticated}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -19,8 +19,9 @@ const LoginPage = ({setIsAuthenticated}) => {
             const token = response.data;
             localStorage.setItem('token', token);
             setError('');
-            setIsAuthenticated(true);
+            onLoginSuccess(token);
             const {roles} = jwtDecode(token);
+            setIsAuthenticated(true);
             roles.includes('ROLE_Кладовщик') ? navigate('/stock-keeper') : navigate('/stock');
         })
             .catch(error => {

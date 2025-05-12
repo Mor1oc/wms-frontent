@@ -101,6 +101,7 @@ a {
     padding-bottom: 7px;
     display: flex;
     justify-content: space-between;
+    min-width: 1400px;
 }
 
 table {
@@ -449,4 +450,9 @@ tbody input[type='number'] {
 .high-stock {
     background-color: #d4edda; /* Зелёный */
     color: #155724;
+}
+
+.analysis-page {
+    display: flex;
+    grid-gap: 25px;
 }

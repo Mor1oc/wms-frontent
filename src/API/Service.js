@@ -95,4 +95,13 @@ export default class Service {
             },
         })
     }
+
+    static async getABCAndXYZWarehouses() {
+        const token = localStorage.getItem('token')
+        return await axios.get(`http://localhost:8080/order/analysis`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
 }
